@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>計算トレーニング</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <script type="text/javascript" src="bundle.js"></script>
+
+  <div class="container">
+
+    <div id="start" style="display: block">
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card darken-1">
+            <div class="card-content">
+              <span class="card-title">No. 1</span>
+              <div class="center">
+                <button id="btn-start1" class="btn-large waves-effect waves-light center teal lighten-2" name="action">Start</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m6">
+          <div class="card darken-1">
+            <div class="card-content">
+              <span class="card-title">No. 2</span>
+              <div class="center">
+                <button id="btn-start2" class="btn-large waves-effect waves-light center teal lighten-2" name="action">Start</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="countdown" style="display: none">
+      <div class="row" style="margin: 5ch">
+        <div class="col s12">
+          <div class="center">
+            <div class="preloader-wrapper big active">
+              <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                  <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+
+              <div class="spinner-layer spinner-red">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                  <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+
+              <div class="spinner-layer spinner-yellow">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                  <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+
+              <div class="spinner-layer spinner-green">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                  <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
+            <div id="countdown-sec" style="font-size: 20pt">3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="progress" style="display: none">
+      <div class="row">
+        <div class="col s12">
+          <div class="card darken-1">
+            <div id="statement" class="card-content center" style="font-size: 50pt">
+              10 - 2
+            </div>
+            <div class="card-action">
+              <div class="center">
+                <button id="btn-next" class="btn-large waves-effect waves-light" name="action">次へ
+                  <i class="material-icons right">arrow_forward</i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="progress">
+        <div id="progress-bar" class="determinate" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <div id="result" style="display: none">
+      <div class="row">
+        <div class="col s12">
+          <div class="card">
+            <div class="card-content">
+              <span id="card-title" class="card-title">No. 1</span>
+              <span class="card-title">かかった時間</span>
+              <div id="elapsed" class="center" style="font-size: 42pt">0:00.000</div>
+            </div>
+            <div class="card-action">
+              <div class="row">
+                <button id="btn-save" class="right btn waves-effect waves-light" name="action">記録する
+                  <i class="material-icons right">save</i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="history" style="display: none">
+      <div class="row">
+        <div class="col s12">
+          <div class="card">
+            <div class="card-content">
+              <div class="row">
+                <div class="col s12 card-title">No. 1</div>
+                <div id="history1" class="row">
+                  <div class="col s5 offset-s1">2018/7/15 8:54:29</div>
+                  <div class="col s4">0:00.000</div>
+                </div>
+                <div class="col s12 card-title">No. 2</div>
+                <div id="history2" class="row">
+                  <div class="col s2 offset-s1">2018/7/15 8:54:29</div>
+                  <div class="col s4">0:00.000</div>
+                </div>
+              </div>
+            </div>
+            <div class="card-action">
+              <div class="row">
+                <button id="btn-delete-all" class="right btn waves-effect waves-light red" name="action">記録を全部消す
+                  <i class="material-icons right">delete</i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="goto-history" class="row" style="display: block">
+      <div class="col s12">
+        <button id="btn-history" class="btn waves-effect waves-light right teal lighten-2" name="action">記録を見る
+          <i class="material-icons right">history</i>
+        </button>
+      </div>
+    </div>
+
+    <div id="goto-init" class="row" style="display: none">
+      <div class="col s12">
+        <button id="btn-init" class="btn waves-effect waves-light right teal lighten-2" name="action">はじめにもどる
+          <i class="material-icons right">refresh</i>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
