@@ -236,7 +236,9 @@ function deleteHistoryItem(date) {
 }
 
 function deleteAll() {
-  localStorage.removeItem("No. 1");
-  localStorage.removeItem("No. 2");
-  showHistory(0);
+  if (confirm("記録を全部消していいですか？")) {
+    localStorage.removeItem("No. 1");
+    localStorage.removeItem("No. 2");
+    showHistory(0);
+  }
 }
