@@ -90,7 +90,9 @@ function start2() {
 function startCommon(num, statements) {
   state.num = num;
   state.startTime = new Date();
-  state.statements = shuffle(statements);
+  do {
+    state.statements = shuffle(statements);
+  } while (checkContinuity(state.statements))
   state.progress = 0;
   showCountdown();
 }
@@ -187,6 +189,15 @@ function shuffle(arrayOrg) {
   }
 
   return array;
+}
+
+function checkContinuity(array) {
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] == array[i - 1]) {
+      return true;
+    }
+  }
+  return false;
 }
 
 function showHistoryItems(tag, historyItems) {
