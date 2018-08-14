@@ -91,7 +91,6 @@ function start2() {
 
 function startCommon(num, statements) {
   state.num = num;
-  state.startTime = new Date();
   do {
     state.statements = shuffle(statements);
   } while (checkContinuity(state.statements))
@@ -109,6 +108,7 @@ function showCountdown() {
       $("#countdown-sec").text("1");
       setTimeout(() => {
         display("progress", 100);
+        state.startTime = new Date();
         nextStatement();
       }, 1000);
     }, 1000);
