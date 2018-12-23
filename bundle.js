@@ -17,6 +17,30 @@ for (let i = 1; i <= 9; i++) {
   STATEMENTS.push(s)
 }
 
+class Storage {
+  constructor(name) {
+      this.name = name;
+  }
+
+  get(title) {
+      return JSON.parse(localStorage.getItem(this.key(title)) || "[]");
+  }
+
+  set(title, obj) {
+    localStorage.setItem(this.key(title), JSON.stringify(obj));
+  }
+
+  remove(title) {
+    localStorage.removeItem(this.key(title));
+  }
+
+  key(title) {
+    return `${this.name}_${title}`;
+  }
+}
+
+const storage = new Storage(location.pathname);
+
 window.onload = function () {
   initialize();
   $("#btn-start1").on('click', start1);
@@ -160,7 +184,7 @@ function showHistory(speed) {
   for (let i = 1; i <= 9; i++) {
     const historyTag = $(`#history${i}`);
     historyTag.empty();
-    const history = JSON.parse(localStorage.getItem(TITLES[i - 1]) || "[]");
+    const history = storage.get(TITLES[i - 1]);
     showHistoryItems(historyTag, history);
   }
 }
@@ -237,12 +261,12 @@ function showHistoryItems(tag, historyItems) {
 
 function saveResult() {
   if (confirm(`${state.num} の記録 ${formatElapsedTime(state.endTime - state.startTime)} を保存しますか？`)) {
-    const result = JSON.parse(localStorage.getItem(state.num) || "[]");
+    const result = storage.get(state.num);
     result.unshift({
       date: state.startTime.toLocaleString(),
       elapsedMs: state.endTime - state.startTime
     });
-    localStorage.setItem(state.num, JSON.stringify(result));
+    storage.set(state.num, result);
     showHistory();
   }
 }
@@ -250,12 +274,12 @@ function saveResult() {
 function deleteHistoryItem(date) {
   const keys = TITLES;
   keys.forEach(k => {
-    const historyItems = JSON.parse(localStorage.getItem(k) || "[]");
+    const historyItems = storage.get(k);
     for (let i = 0; i < historyItems.length; i++) {
       if (historyItems[i].date == date) {
         console.log(`Found ${date} in ${k} at ${i}.`);
         historyItems.splice(i, 1);
-        localStorage.setItem(k, JSON.stringify(historyItems));
+        storage.set(k, historyItems);
         return;
       }
     }
@@ -265,7 +289,7 @@ function deleteHistoryItem(date) {
 function deleteAll() {
   const num = $(this).data("num");
   if (confirm(`${num}の記録を全部消していいですか？`)) {
-    localStorage.removeItem(num);
+    storage.remove(num);
     showHistory(0);
   }
 }
