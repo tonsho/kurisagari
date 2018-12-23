@@ -6,6 +6,8 @@ const state = {
   endTime: null,
 };
 
+const TITLES = ["No. 1", "No. 2", "No. 3"];
+
 const STATEMENTS_1 = [
   "10 - 8",
   "10 - 5",
@@ -67,6 +69,7 @@ window.onload = function () {
   initialize();
   $("#btn-start1").on('click', start1);
   $("#btn-start2").on('click', start2);
+  $("#btn-start3").on('click', start3);
   $("#btn-next").on('click', nextStatement);
   $("#btn-back").on('click', backStatement);
   $("#btn-back-to-progress").on('click', backToProgress);
@@ -81,13 +84,28 @@ function initialize() {
 }
 
 function start1() {
-  startCommon("No. 1", STATEMENTS_1);
+  startCommon(TITLES[0], STATEMENTS_1);
 }
 
 function start2() {
-  startCommon("No. 2", STATEMENTS_2);
+  startCommon(TITLES[1], STATEMENTS_2);
 }
 
+function start3() {
+  const s = [];
+  for (let i = 0; i < 10; i++) {
+    l1 = getRandomInt(2, 9);
+    l2 = getRandomInt(0, 8);
+    r1 = getRandomInt(1, l1);
+    r2 = getRandomInt(l2 + 1, 9);
+    s.push(`${l1}${l2} - ${r1}${r2}`);
+  }
+  startCommon(TITLES[2], s);
+}
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
 
 function startCommon(num, statements) {
   state.num = num;
@@ -168,15 +186,12 @@ function backToProgress() {
 
 function showHistory(speed) {
   display("history", speed);
-  const history1Tag = $("#history1");
-  history1Tag.empty();
-  const history2Tag = $("#history2");
-  history2Tag.empty();
-
-  const history1 = JSON.parse(localStorage.getItem("No. 1") || "[]");
-  showHistoryItems(history1Tag, history1);
-  const history2 = JSON.parse(localStorage.getItem("No. 2") || "[]");
-  showHistoryItems(history2Tag, history2);
+  for (let i = 1; i <= 3; i++) {
+    const historyTag = $(`#history${i}`);
+    historyTag.empty();
+    const history = JSON.parse(localStorage.getItem(TITLES[i - 1]) || "[]");
+    showHistoryItems(historyTag, history);
+  }
 }
 
 function formatElapsedTime(elapsedMs) {
@@ -262,7 +277,7 @@ function saveResult() {
 }
 
 function deleteHistoryItem(date) {
-  const keys = ["No. 1", "No. 2"];
+  const keys = TITLES;
   keys.forEach(k => {
     const historyItems = JSON.parse(localStorage.getItem(k) || "[]");
     for (let i = 0; i < historyItems.length; i++) {
