@@ -6,67 +6,28 @@ const state = {
   endTime: null,
 };
 
-const STATEMENTS_1 = [
-  "10 - 8",
-  "10 - 5",
-  "10 - 7",
-  "10 - 2",
-  "10 - 4",
-  "10 - 1",
-  "10 - 3",
-  "10 - 9",
-  "10 - 0",
-  "10 - 6",
-  "10 - 3",
-  "10 - 2",
-  "10 - 6",
-  "10 - 1",
-  "10 - 9",
-  "10 - 5",
-  "10 - 8",
-  "10 - 10",
-  "10 - 7",
-  "10 - 4",
-];
-
-
-const STATEMENTS_2 = [
-  "13 - 8",
-  "12 - 5",
-  "15 - 7",
-  "11 - 2",
-  "12 - 4",
-  "16 - 9",
-  "18 - 9",
-  "17 - 5",
-  "11 - 5",
-  "13 - 6",
-  "11 - 3",
-  "16 - 7",
-  "14 - 6",
-  "11 - 7",
-  "15 - 9",
-  "12 - 6",
-  "15 - 8",
-  "17 - 9",
-  "16 - 8",
-  "11 - 9",
-  "13 - 4",
-  "12 - 7",
-  "14 - 8",
-  "13 - 5",
-  "12 - 9",
-  "13 - 7",
-  "14 - 9",
-  "11 - 4",
-  "15 - 6",
-  "11 - 8",
-];
+const TITLES = ["１の段", "２の段", "３の段", "４の段", "５の段", "６の段", "７の段", "８の段", "９の段"];
+const STATEMENTS = [];
+for (let i = 1; i <= 9; i++) {
+  const s = [];
+  for (let j = 1; j <= 9; j++) {
+    s.push(`${i} x ${j}`);
+    s.push(`${i} x ${j}`);
+  }
+  STATEMENTS.push(s)
+}
 
 window.onload = function () {
   initialize();
   $("#btn-start1").on('click', start1);
   $("#btn-start2").on('click', start2);
+  $("#btn-start3").on('click', start3);
+  $("#btn-start4").on('click', start4);
+  $("#btn-start5").on('click', start5);
+  $("#btn-start6").on('click', start6);
+  $("#btn-start7").on('click', start7);
+  $("#btn-start8").on('click', start8);
+  $("#btn-start9").on('click', start9);
   $("#btn-next").on('click', nextStatement);
   $("#btn-back").on('click', backStatement);
   $("#btn-back-to-progress").on('click', backToProgress);
@@ -81,11 +42,39 @@ function initialize() {
 }
 
 function start1() {
-  startCommon("No. 1", STATEMENTS_1);
+  startCommon(TITLES[0], STATEMENTS[0]);
 }
 
 function start2() {
-  startCommon("No. 2", STATEMENTS_2);
+  startCommon(TITLES[1], STATEMENTS[1]);
+}
+
+function start3() {
+  startCommon(TITLES[2], STATEMENTS[2]);
+}
+
+function start4() {
+  startCommon(TITLES[3], STATEMENTS[3]);
+}
+
+function start5() {
+  startCommon(TITLES[4], STATEMENTS[4]);
+}
+
+function start6() {
+  startCommon(TITLES[5], STATEMENTS[5]);
+}
+
+function start7() {
+  startCommon(TITLES[6], STATEMENTS[6]);
+}
+
+function start8() {
+  startCommon(TITLES[7], STATEMENTS[7]);
+}
+
+function start9() {
+  startCommon(TITLES[8], STATEMENTS[8]);
 }
 
 
@@ -168,15 +157,12 @@ function backToProgress() {
 
 function showHistory(speed) {
   display("history", speed);
-  const history1Tag = $("#history1");
-  history1Tag.empty();
-  const history2Tag = $("#history2");
-  history2Tag.empty();
-
-  const history1 = JSON.parse(localStorage.getItem("No. 1") || "[]");
-  showHistoryItems(history1Tag, history1);
-  const history2 = JSON.parse(localStorage.getItem("No. 2") || "[]");
-  showHistoryItems(history2Tag, history2);
+  for (let i = 1; i <= 9; i++) {
+    const historyTag = $(`#history${i}`);
+    historyTag.empty();
+    const history = JSON.parse(localStorage.getItem(TITLES[i - 1]) || "[]");
+    showHistoryItems(historyTag, history);
+  }
 }
 
 function formatElapsedTime(elapsedMs) {
@@ -262,7 +248,7 @@ function saveResult() {
 }
 
 function deleteHistoryItem(date) {
-  const keys = ["No. 1", "No. 2"];
+  const keys = TITLES;
   keys.forEach(k => {
     const historyItems = JSON.parse(localStorage.getItem(k) || "[]");
     for (let i = 0; i < historyItems.length; i++) {

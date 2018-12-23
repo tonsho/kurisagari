@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>計算トレーニング</title>
+  <title>計算トレーニング 九九</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -27,24 +27,92 @@
 
     <div id="start" style="display: block">
       <div class="row">
-        <div class="col s12 m6">
+        <div class="col s6 m4">
           <div class="card">
             <div class="card-content">
-              <span class="card-title">No. 1</span>
-              10 - △の計算 20問
+              <span class="card-title">１の段</span>
               <div class="center" style="margin-top: 20px">
-                <button id="btn-start1" class="btn-large waves-effect waves-light center teal lighten-2" name="action">Start</button>
+                <button id="btn-start1" class="btn-large waves-effect waves-light center indigo lighten-2" name="action">Start</button>
               </div>
             </div>
           </div>
         </div>
-        <div class="col s12 m6">
+        <div class="col s6 m4">
           <div class="card">
             <div class="card-content">
-              <span class="card-title">No. 2</span>
-              1○ - △の計算 30問
+              <span class="card-title">２の段</span>
               <div class="center" style="margin-top: 20px">
-                <button id="btn-start2" class="btn-large waves-effect waves-light center teal lighten-2" name="action">Start</button>
+                <button id="btn-start2" class="btn-large waves-effect waves-light center indigo lighten-2" name="action">Start</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s6 m4">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">３の段</span>
+              <div class="center" style="margin-top: 20px">
+                <button id="btn-start3" class="btn-large waves-effect waves-light center indigo lighten-2" name="action">Start</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s6 m4">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">４の段</span>
+              <div class="center" style="margin-top: 20px">
+                <button id="btn-start4" class="btn-large waves-effect waves-light center indigo lighten-2" name="action">Start</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s6 m4">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">５の段</span>
+              <div class="center" style="margin-top: 20px">
+                <button id="btn-start5" class="btn-large waves-effect waves-light center indigo lighten-2" name="action">Start</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s6 m4">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">６の段</span>
+              <div class="center" style="margin-top: 20px">
+                <button id="btn-start6" class="btn-large waves-effect waves-light center indigo lighten-2" name="action">Start</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s6 m4">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">７の段</span>
+              <div class="center" style="margin-top: 20px">
+                <button id="btn-start7" class="btn-large waves-effect waves-light center indigo lighten-2" name="action">Start</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s6 m4">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">８の段</span>
+              <div class="center" style="margin-top: 20px">
+                <button id="btn-start8" class="btn-large waves-effect waves-light center indigo lighten-2" name="action">Start</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s6 m4">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">９の段</span>
+              <div class="center" style="margin-top: 20px">
+                <button id="btn-start9" class="btn-large waves-effect waves-light center indigo lighten-2" name="action">Start</button>
               </div>
             </div>
           </div>
@@ -52,7 +120,7 @@
       </div>
     </div>
 
-    <div id="countdown" style="display: none">
+    <div id="countdown" style="display: block">
       <div class="row" style="margin: 5ch">
         <div class="col s12">
           <div class="center">
@@ -112,24 +180,24 @@
     </div>
 
 
-    <div id="progress" style="display: none">
+    <div id="progress" style="display: block">
       <div class="row">
         <div class="col s12">
           <div class="card darken-1">
             <div id="statement" class="card-content center" style="font-size: 50pt">
-              10 - 2
+              9 x 9
             </div>
             <div class="card-action">
               <div class="row" style="margin-bottom: 0">
                 <div class="col s5">
                   <div class="right">
-                    <button id="btn-back" class="btn-large waves-effect waves-light teal lighten-4" name="action">
+                    <button id="btn-back" class="btn-large waves-effect waves-light indigo lighten-4" name="action">
                       <i class="material-icons">arrow_back</i>
                     </button>
                   </div>
                 </div>
                 <div class="col s7">
-                  <button id="btn-next" class="btn-large waves-effect waves-light teal" name="action">次へ
+                  <button id="btn-next" class="btn-large waves-effect waves-light indigo" name="action">次へ
                     <i class="material-icons right">arrow_forward</i>
                   </button>
                 </div>
@@ -139,17 +207,17 @@
         </div>
       </div>
 
-      <div class="progress">
-        <div id="progress-bar" class="determinate" style="width: 0%"></div>
+      <div class="progress indigo lighten-4">
+        <div id="progress-bar" class="determinate indigo" style="width: 0%"></div>
       </div>
     </div>
 
-    <div id="result" style="display: none">
+    <div id="result" style="display: block">
       <div class="row">
         <div class="col s12">
           <div class="card">
             <div class="card-content">
-              <span id="card-title" class="card-title">No. 1</span>
+              <span id="card-title" class="card-title">１の段</span>
               <span class="card-title">かかった時間</span>
               <div id="elapsed" class="center" style="font-size: 42pt">0:00.000</div>
             </div>
@@ -157,13 +225,13 @@
               <div class="row" style="margin-bottom: 0">
                 <div class="col s5">
                   <div class="right">
-                    <button id="btn-back-to-progress" class="btn-large waves-effect waves-light teal lighten-4" name="action">
+                    <button id="btn-back-to-progress" class="btn-large waves-effect waves-light indigo lighten-4" name="action">
                       <i class="material-icons">arrow_back</i>
                     </button>
                   </div>
                 </div>
                 <div class="col s7">
-                  <button id="btn-save" class="btn-large waves-effect waves-light" name="action">記録する
+                  <button id="btn-save" class="btn-large waves-effect waves-light indigo" name="action">記録する
                     <i class="material-icons right">save</i>
                   </button>
                 </div>
@@ -174,23 +242,25 @@
       </div>
     </div>
 
-    <div id="history" style="display: none">
+    <div id="history" style="display: block">
       <div class="row">
         <div class="col s12 m6">
           <div class="card">
             <div class="card-content">
-              <div class="card-title">No. 1</div>
-              <tt><div id="history1" class="row">
-                <div class="col s5 offset-s1" style="white-space: nowrap">&nbsp;7/15 18:54</div>
-                <div class="col s4" style="white-space: nowrap">0:00.000</div>
-                <div class="col s2">
-                  <i class="material-icons" style="color: grey; font-size: 1em">clear</i>
+              <div class="card-title">１の段</div>
+              <tt>
+                <div id="history1" class="row">
+                  <div class="col s5 offset-s1" style="white-space: nowrap">&nbsp;7/15 18:54</div>
+                  <div class="col s4" style="white-space: nowrap">0:00.000</div>
+                  <div class="col s2">
+                    <i class="material-icons" style="color: grey; font-size: 1em">clear</i>
+                  </div>
                 </div>
-              </div></tt>
+              </tt>
             </div>
             <div class="card-action">
               <div class="row" style="margin-bottom: 0">
-                <button class="right btn waves-effect waves-light red btn-delete-all" data-num="No. 1" name="action">記録を全部消す
+                <button class="right btn waves-effect waves-light red btn-delete-all" data-num="１の段" name="action">記録を全部消す
                   <i class="material-icons right">delete</i>
                 </button>
               </div>
@@ -200,18 +270,181 @@
         <div class="col s12 m6">
           <div class="card">
             <div class="card-content">
-              <span class="card-title">No. 2</span>
-              <tt><div id="history2" class="row">
-                <div class="col s5 offset-s1" style="white-space: nowrap">&nbsp;7/15 18:54</div>
-                <div class="col s4" style="white-space: nowrap">0:00.000</div>
-                <div class="col s2">
-                  <i class="material-icons" style="color: grey; font-size: 1em">clear</i>
+              <span class="card-title">２の段</span>
+              <tt>
+                <div id="history2" class="row">
+                  <div class="col s5 offset-s1" style="white-space: nowrap">&nbsp;7/15 18:54</div>
+                  <div class="col s4" style="white-space: nowrap">0:00.000</div>
+                  <div class="col s2">
+                    <i class="material-icons" style="color: grey; font-size: 1em">clear</i>
+                  </div>
                 </div>
-              </div></tt>
+              </tt>
             </div>
             <div class="card-action">
               <div class="row" style="margin-bottom: 0">
-                <button class="right btn waves-effect waves-light red btn-delete-all" data-num="No. 2" name="action">記録を全部消す
+                <button class="right btn waves-effect waves-light red btn-delete-all" data-num="２の段" name="action">記録を全部消す
+                  <i class="material-icons right">delete</i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-title">３の段</div>
+              <tt>
+                <div id="history3" class="row">
+                  <div class="col s5 offset-s1" style="white-space: nowrap">&nbsp;7/15 18:54</div>
+                  <div class="col s4" style="white-space: nowrap">0:00.000</div>
+                  <div class="col s2">
+                    <i class="material-icons" style="color: grey; font-size: 1em">clear</i>
+                  </div>
+                </div>
+              </tt>
+            </div>
+            <div class="card-action">
+              <div class="row" style="margin-bottom: 0">
+                <button class="right btn waves-effect waves-light red btn-delete-all" data-num="３の段" name="action">記録を全部消す
+                  <i class="material-icons right">delete</i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">４の段</span>
+              <tt>
+                <div id="history4" class="row">
+                  <div class="col s5 offset-s1" style="white-space: nowrap">&nbsp;7/15 18:54</div>
+                  <div class="col s4" style="white-space: nowrap">0:00.000</div>
+                  <div class="col s2">
+                    <i class="material-icons" style="color: grey; font-size: 1em">clear</i>
+                  </div>
+                </div>
+              </tt>
+            </div>
+            <div class="card-action">
+              <div class="row" style="margin-bottom: 0">
+                <button class="right btn waves-effect waves-light red btn-delete-all" data-num="４の段" name="action">記録を全部消す
+                  <i class="material-icons right">delete</i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-title">５の段</div>
+              <tt>
+                <div id="history5" class="row">
+                  <div class="col s5 offset-s1" style="white-space: nowrap">&nbsp;7/15 18:54</div>
+                  <div class="col s4" style="white-space: nowrap">0:00.000</div>
+                  <div class="col s2">
+                    <i class="material-icons" style="color: grey; font-size: 1em">clear</i>
+                  </div>
+                </div>
+              </tt>
+            </div>
+            <div class="card-action">
+              <div class="row" style="margin-bottom: 0">
+                <button class="right btn waves-effect waves-light red btn-delete-all" data-num="５の段" name="action">記録を全部消す
+                  <i class="material-icons right">delete</i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">６の段</span>
+              <tt>
+                <div id="history6" class="row">
+                  <div class="col s5 offset-s1" style="white-space: nowrap">&nbsp;7/15 18:54</div>
+                  <div class="col s4" style="white-space: nowrap">0:00.000</div>
+                  <div class="col s2">
+                    <i class="material-icons" style="color: grey; font-size: 1em">clear</i>
+                  </div>
+                </div>
+              </tt>
+            </div>
+            <div class="card-action">
+              <div class="row" style="margin-bottom: 0">
+                <button class="right btn waves-effect waves-light red btn-delete-all" data-num="６の段" name="action">記録を全部消す
+                  <i class="material-icons right">delete</i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-title">７の段</div>
+              <tt>
+                <div id="history7" class="row">
+                  <div class="col s5 offset-s1" style="white-space: nowrap">&nbsp;7/15 18:54</div>
+                  <div class="col s4" style="white-space: nowrap">0:00.000</div>
+                  <div class="col s2">
+                    <i class="material-icons" style="color: grey; font-size: 1em">clear</i>
+                  </div>
+                </div>
+              </tt>
+            </div>
+            <div class="card-action">
+              <div class="row" style="margin-bottom: 0">
+                <button class="right btn waves-effect waves-light red btn-delete-all" data-num="７の段" name="action">記録を全部消す
+                  <i class="material-icons right">delete</i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">８の段</span>
+              <tt>
+                <div id="history8" class="row">
+                  <div class="col s5 offset-s1" style="white-space: nowrap">&nbsp;7/15 18:54</div>
+                  <div class="col s4" style="white-space: nowrap">0:00.000</div>
+                  <div class="col s2">
+                    <i class="material-icons" style="color: grey; font-size: 1em">clear</i>
+                  </div>
+                </div>
+              </tt>
+            </div>
+            <div class="card-action">
+              <div class="row" style="margin-bottom: 0">
+                <button class="right btn waves-effect waves-light red btn-delete-all" data-num="８の段" name="action">記録を全部消す
+                  <i class="material-icons right">delete</i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-title">９の段</div>
+              <tt>
+                <div id="history9" class="row">
+                  <div class="col s5 offset-s1" style="white-space: nowrap">&nbsp;7/15 18:54</div>
+                  <div class="col s4" style="white-space: nowrap">0:00.000</div>
+                  <div class="col s2">
+                    <i class="material-icons" style="color: grey; font-size: 1em">clear</i>
+                  </div>
+                </div>
+              </tt>
+            </div>
+            <div class="card-action">
+              <div class="row" style="margin-bottom: 0">
+                <button class="right btn waves-effect waves-light red btn-delete-all" data-num="９の段" name="action">記録を全部消す
                   <i class="material-icons right">delete</i>
                 </button>
               </div>
@@ -223,15 +456,15 @@
 
     <div id="goto-history" class="row" style="display: block">
       <div class="col s12">
-        <button id="btn-history" class="btn waves-effect waves-light right teal lighten-2" name="action">記録を見る
+        <button id="btn-history" class="btn waves-effect waves-light right indigo lighten-2" name="action">記録を見る
           <i class="material-icons right">history</i>
         </button>
       </div>
     </div>
 
-    <div id="goto-init" class="row" style="display: none">
+    <div id="goto-init" class="row" style="display: block">
       <div class="col s12">
-        <button id="btn-init" class="btn waves-effect waves-light right teal lighten-2" name="action">はじめにもどる
+        <button id="btn-init" class="btn waves-effect waves-light right indigo lighten-2" name="action">はじめにもどる
           <i class="material-icons right">refresh</i>
         </button>
       </div>
