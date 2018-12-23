@@ -6,7 +6,7 @@ const state = {
   endTime: null,
 };
 
-const TITLES = ["１の段", "２の段", "３の段", "４の段", "５の段", "６の段", "７の段", "８の段", "９の段"];
+const TITLES = ["１の段", "２の段", "３の段", "４の段", "５の段", "６の段", "７の段", "８の段", "９の段", "ランダム"];
 const STATEMENTS = [];
 for (let i = 1; i <= 9; i++) {
   const s = [];
@@ -52,6 +52,7 @@ window.onload = function () {
   $("#btn-start7").on('click', start7);
   $("#btn-start8").on('click', start8);
   $("#btn-start9").on('click', start9);
+  $("#btn-start-r").on('click', startR);
   $("#btn-next").on('click', nextStatement);
   $("#btn-back").on('click', backStatement);
   $("#btn-back-to-progress").on('click', backToProgress);
@@ -101,6 +102,17 @@ function start9() {
   startCommon(TITLES[8], STATEMENTS[8]);
 }
 
+function startR() {
+  const s = [];
+  for (let i = 0; i < 20; i++) {
+    s.push(`${getRandomInt(9)} x ${getRandomInt(9)}`);
+  }
+  startCommon(TITLES[9], s);
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * (max - 1)) + 1;
+}
 
 function startCommon(num, statements) {
   state.num = num;
@@ -181,7 +193,7 @@ function backToProgress() {
 
 function showHistory(speed) {
   display("history", speed);
-  for (let i = 1; i <= 9; i++) {
+  for (let i = 1; i <= 10; i++) {
     const historyTag = $(`#history${i}`);
     historyTag.empty();
     const history = storage.get(TITLES[i - 1]);
