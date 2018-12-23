@@ -190,6 +190,17 @@ function zeroPadding(num, length) {
   return ('0000000000' + num).slice(-length);
 }
 
+function formatDate (date, format) {
+  format = format.replace(/yyyy/g, date.getFullYear());
+  format = format.replace(/MM/g, (' ' + (date.getMonth() + 1)).slice(-2));
+  format = format.replace(/dd/g, (' ' + date.getDate()).slice(-2));
+  format = format.replace(/HH/g, (' ' + date.getHours()).slice(-2));
+  format = format.replace(/mm/g, ('0' + date.getMinutes()).slice(-2));
+  format = format.replace(/ss/g, ('0' + date.getSeconds()).slice(-2));
+  format = format.replace(/SSS/g, ('00' + date.getMilliseconds()).slice(-3));
+  return format.replace(/\s/g, '&nbsp;');
+};
+
 function shuffle(arrayOrg) {
   const array = arrayOrg.slice();
   let n = array.length,
@@ -223,10 +234,11 @@ function showHistoryItems(tag, historyItems) {
   }
 
   historyItems.forEach(h => {
+    const date = new Date(Date.parse(h.date))
     tag.append(
-      `<div class="col s7 ${h.elapsedMs == minElapsedMs ? "green lighten-3" : ""}" style="margin-left: 10pt; white-space: nowrap">${h.date}</div>
-      <div class="col s3 ${h.elapsedMs == minElapsedMs ? "green lighten-3 left" : ""}" style="white-space: nowrap">${formatElapsedTime(h.elapsedMs)}</div>
-      <div class="col s1 delete-this" data-date="${h.date}"><i class="material-icons" style="color: grey; font-size: 1em">clear</i></div>`
+      `<div class="col s5 offset-s1 ${h.elapsedMs == minElapsedMs ? "green lighten-3" : ""}" style="white-space: nowrap">${formatDate(date, 'MM/dd HH:mm')}</div>
+      <div class="col s4 ${h.elapsedMs == minElapsedMs ? "green lighten-3 left" : ""}" style="white-space: nowrap">${formatElapsedTime(h.elapsedMs)}</div>
+      <div class="col s2 delete-this" data-date="${h.date}"><i class="material-icons" style="color: grey; font-size: 1em">clear</i></div>`
     );
   });
   $(".delete-this", tag).on("click", function () {
